@@ -39,6 +39,7 @@ def create_mask(img, color_range):
 
 ''' apply mask to image by creating numpy.masked_array and filled with 255 '''
 def apply_mask(img, mask):
+    ''' notice that numpy.mask_array will give blank value if mask is true so we need to do 1's complement to our mask '''
     return np.ma.array(img, mask=~mask).filled(255)
 
 ''' merge masks to single mask '''
